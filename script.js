@@ -143,31 +143,7 @@ document.addEventListener("DOMContentLoaded", () => {
     setTimeout(type, 2000);
   }
 
-  /* ---------- Лайтбокс сертификата ---------- */
-  const certImg = document.getElementById("certImg");
-  const lightbox = document.getElementById("lightbox");
-  const lightboxClose = document.getElementById("lightboxClose");
-
-  const openLightbox = () => {
-    lightbox?.classList.add("open");
-    lightbox?.setAttribute("aria-hidden", "false");
-    document.body.style.overflow = "hidden";
-  };
-  const closeLightbox = () => {
-    lightbox?.classList.remove("open");
-    lightbox?.setAttribute("aria-hidden", "true");
-    document.body.style.overflow = "";
-  };
-
-  certImg?.addEventListener("click", openLightbox);
-  lightboxClose?.addEventListener("click", closeLightbox);
-  lightbox?.addEventListener("click", (e) => {
-    if (e.target === lightbox) closeLightbox();
-  });
   document.addEventListener("keydown", (e) => {
-    if (e.key === "Escape") {
-      closeLightbox();
-      closeMenu();
-    }
+    if (e.key === "Escape") closeMenu();
   });
 });
