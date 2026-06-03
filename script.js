@@ -1,192 +1,173 @@
-// ========================================
-// Мобильное меню
-// ========================================
-const navToggle = document.querySelector('.nav-toggle');
-const navMenu = document.querySelector('.nav-menu');
+/* ============================================
+   Портфолио — Мухаммадсалмон Тухтаев
+   Логика: меню, тема, анимации, лайтбокс
+   ============================================ */
 
-if (navToggle) {
-    navToggle.addEventListener('click', () => {
-        navMenu.classList.toggle('active');
-    });
-}
+document.addEventListener("DOMContentLoaded", () => {
+  /* ---------- Год в футере ---------- */
+  const yearEl = document.getElementById("year");
+  if (yearEl) yearEl.textContent = new Date().getFullYear();
 
-// Закрытие меню при клике на ссылку
-const navLinks = document.querySelectorAll('.nav-link');
-navLinks.forEach(link => {
-    link.addEventListener('click', () => {
-        navMenu.classList.remove('active');
-    });
-});
+  /* ---------- Тема (тёмная / светлая) ---------- */
+  const themeToggle = document.getElementById("themeToggle");
+  const root = document.documentElement;
+  const savedTheme = localStorage.getItem("theme");
+  const prefersLight = window.matchMedia("(prefers-color-scheme: light)").matches;
+  const initialTheme = savedTheme || (prefersLight ? "light" : "dark");
+  root.setAttribute("data-theme", initialTheme);
 
-// ========================================
-// Smooth Scroll для навигации
-// ========================================
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function (e) {
-        e.preventDefault();
-        const target = document.querySelector(this.getAttribute('href'));
-        if (target) {
-            const offsetTop = target.offsetTop - 70; // Учет высоты навбара
-            window.scrollTo({
-                top: offsetTop,
-                behavior: 'smooth'
-            });
-        }
-    });
-});
+  themeToggle?.addEventListener("click", () => {
+    const next = root.getAttribute("data-theme") === "dark" ? "light" : "dark";
+    root.setAttribute("data-theme", next);
+    localStorage.setItem("theme", next);
+  });
 
-// ========================================
-// Scroll Animations (Fade In)
-// ========================================
-const observerOptions = {
-    root: null,
-    rootMargin: '0px',
-    threshold: 0.1
-};
+  /* ---------- Мобильное меню ---------- */
+  const navToggle = document.getElementById("navToggle");
+  const navMenu = document.getElementById("navMenu");
 
-const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
+  const closeMenu = () => {
+    navMenu?.classList.remove("open");
+    navToggle?.classList.remove("open");
+  };
+
+  navToggle?.addEventListener("click", () => {
+    navMenu?.classList.toggle("open");
+    navToggle.classList.toggle("open");
+  });
+
+  document.querySelectorAll(".nav__link").forEach((link) => {
+    link.addEventListener("click", closeMenu);
+  });
+
+  document.addEventListener("click", (e) => {
+    if (
+      navMenu?.classList.contains("open") &&
+      !navMenu.contains(e.target) &&
+      !navToggle.contains(e.target)
+    ) {
+      closeMenu();
+    }
+  });
+
+  /* ---------- Навбар при прокрутке + прогресс ---------- */
+  const navbar = document.getElementById("navbar");
+  const progress = document.getElementById("scrollProgress");
+  const toTop = document.getElementById("toTop");
+
+  const onScroll = () => {
+    const scrollY = window.scrollY;
+    navbar?.classList.toggle("scrolled", scrollY > 30);
+    toTop?.classList.toggle("show", scrollY > 500);
+
+    const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+    const pct = docHeight > 0 ? (scrollY / docHeight) * 100 : 0;
+    if (progress) progress.style.width = pct + "%";
+  };
+  window.addEventListener("scroll", onScroll, { passive: true });
+  onScroll();
+
+  toTop?.addEventListener("click", () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  });
+
+  /* ---------- Активная ссылка навигации ---------- */
+  const sections = document.querySelectorAll("section[id]");
+  const navLinks = document.querySelectorAll(".nav__link");
+
+  const navObserver = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
         if (entry.isIntersecting) {
-            entry.target.classList.add('visible');
+          const id = entry.target.getAttribute("id");
+          navLinks.forEach((link) => {
+            link.classList.toggle(
+              "active",
+              link.getAttribute("href") === `#${id}`
+            );
+          });
         }
-    });
-}, observerOptions);
+      });
+    },
+    { rootMargin: "-45% 0px -50% 0px" }
+  );
+  sections.forEach((s) => navObserver.observe(s));
 
-// Добавляем fade-in класс ко всем секциям и элементам
-const animatedElements = document.querySelectorAll('.section-title, .about-content, .skill-item, .certificate-card, .project-card, .contact-content');
-animatedElements.forEach(el => {
-    el.classList.add('fade-in');
-    observer.observe(el);
-});
-
-// ========================================
-// Активная ссылка в навбаре при скролле
-// ========================================
-const sections = document.querySelectorAll('section[id]');
-
-window.addEventListener('scroll', () => {
-    const scrollY = window.pageYOffset;
-    
-    sections.forEach(section => {
-        const sectionHeight = section.offsetHeight;
-        const sectionTop = section.offsetTop - 100;
-        const sectionId = section.getAttribute('id');
-        
-        if (scrollY > sectionTop && scrollY <= sectionTop + sectionHeight) {
-            document.querySelectorAll('.nav-link').forEach(link => {
-                link.classList.remove('active');
-                if (link.getAttribute('href') === '#' + sectionId) {
-                    link.classList.add('active');
-                }
-            });
-        }
-    });
-});
-
-// ========================================
-// Parallax эффект для hero секции
-// ========================================
-window.addEventListener('scroll', () => {
-    const scrolled = window.pageYOffset;
-    const heroBackground = document.querySelector('.hero-background');
-    
-    if (heroBackground && scrolled < window.innerHeight) {
-        heroBackground.style.transform = `translateY(${scrolled * 0.5}px)`;
-    }
-});
-
-// ========================================
-// Typewriter эффект для hero subtitle (опционально)
-// ========================================
-const heroSubtitle = document.querySelector('.hero-subtitle');
-if (heroSubtitle) {
-    const text = heroSubtitle.textContent;
-    heroSubtitle.textContent = '';
-    let index = 0;
-    
-    function typeWriter() {
-        if (index < text.length) {
-            heroSubtitle.textContent += text.charAt(index);
-            index++;
-            setTimeout(typeWriter, 50);
-        }
-    }
-    
-    // Запускаем анимацию после загрузки страницы
-    setTimeout(typeWriter, 1000);
-}
-
-// ========================================
-// Добавляем hover эффект для карточек проектов
-// ========================================
-const projectCards = document.querySelectorAll('.project-card');
-
-projectCards.forEach(card => {
-    card.addEventListener('mouseenter', () => {
-        card.style.transform = 'translateY(-10px) scale(1.02)';
-    });
-    
-    card.addEventListener('mouseleave', () => {
-        card.style.transform = 'translateY(0) scale(1)';
-    });
-});
-
-// ========================================
-// Анимация при наведении на сертификаты
-// ========================================
-const certificateCards = document.querySelectorAll('.certificate-card');
-
-certificateCards.forEach(card => {
-    card.addEventListener('mouseenter', () => {
-        card.style.transform = 'translateY(-10px) scale(1.02)';
-    });
-    
-    card.addEventListener('mouseleave', () => {
-        card.style.transform = 'translateY(0) scale(1)';
-    });
-});
-
-// ========================================
-// Lazy loading для изображений
-// ========================================
-const images = document.querySelectorAll('img[data-src]');
-
-const imageObserver = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
+  /* ---------- Анимация появления ---------- */
+  const revealEls = document.querySelectorAll(".reveal");
+  const revealObserver = new IntersectionObserver(
+    (entries, obs) => {
+      entries.forEach((entry, i) => {
         if (entry.isIntersecting) {
-            const img = entry.target;
-            img.src = img.dataset.src;
-            img.removeAttribute('data-src');
-            imageObserver.unobserve(img);
+          setTimeout(() => entry.target.classList.add("visible"), i * 80);
+          obs.unobserve(entry.target);
         }
-    });
-});
+      });
+    },
+    { threshold: 0.12 }
+  );
+  revealEls.forEach((el) => revealObserver.observe(el));
 
-images.forEach(img => {
-    imageObserver.observe(img);
-});
+  /* ---------- Эффект печатной машинки ---------- */
+  const typedEl = document.getElementById("typed");
+  if (typedEl) {
+    const roles = [
+      "Junior C++ Developer",
+      "Qt Desktop Developer",
+      "WordPress Developer",
+      "Algorithm Enthusiast",
+    ];
+    let roleIndex = 0;
+    let charIndex = roles[0].length;
+    let deleting = false;
 
-// ========================================
-// Добавляем плавный переход для навбара
-// ========================================
-let lastScroll = 0;
-const navbar = document.querySelector('.navbar');
+    const type = () => {
+      const current = roles[roleIndex];
+      typedEl.textContent = current.substring(0, charIndex);
 
-window.addEventListener('scroll', () => {
-    const currentScroll = window.pageYOffset;
-    
-    if (currentScroll <= 0) {
-        navbar.style.boxShadow = 'none';
-    } else {
-        navbar.style.boxShadow = '0 2px 10px rgba(0, 0, 0, 0.3)';
+      if (!deleting && charIndex < current.length) {
+        charIndex++;
+        setTimeout(type, 90);
+      } else if (!deleting && charIndex === current.length) {
+        deleting = true;
+        setTimeout(type, 1800);
+      } else if (deleting && charIndex > 0) {
+        charIndex--;
+        setTimeout(type, 45);
+      } else {
+        deleting = false;
+        roleIndex = (roleIndex + 1) % roles.length;
+        setTimeout(type, 350);
+      }
+    };
+    setTimeout(type, 2000);
+  }
+
+  /* ---------- Лайтбокс сертификата ---------- */
+  const certImg = document.getElementById("certImg");
+  const lightbox = document.getElementById("lightbox");
+  const lightboxClose = document.getElementById("lightboxClose");
+
+  const openLightbox = () => {
+    lightbox?.classList.add("open");
+    lightbox?.setAttribute("aria-hidden", "false");
+    document.body.style.overflow = "hidden";
+  };
+  const closeLightbox = () => {
+    lightbox?.classList.remove("open");
+    lightbox?.setAttribute("aria-hidden", "true");
+    document.body.style.overflow = "";
+  };
+
+  certImg?.addEventListener("click", openLightbox);
+  lightboxClose?.addEventListener("click", closeLightbox);
+  lightbox?.addEventListener("click", (e) => {
+    if (e.target === lightbox) closeLightbox();
+  });
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape") {
+      closeLightbox();
+      closeMenu();
     }
-    
-    lastScroll = currentScroll;
+  });
 });
-
-// ========================================
-// Console message для разработчиков
-// ========================================
-console.log('%cПривет! 👋', 'font-size: 24px; font-weight: bold; color: #00d4ff;');
-console.log('%cЭто портфолио Тухтаева Мухаммадсалмона', 'font-size: 14px; color: #a0a0b0;');
-console.log('%cЕсли вы ищете талантливого Junior Developer, свяжитесь со мной!', 'font-size: 14px; color: #7c3aed;');

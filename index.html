@@ -1,259 +1,408 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Портфолио Тухтаева Мухаммадсалмона - Junior C++ / Unreal Engine Developer">
-    <title>Тухтаев Мухаммадсалмон | Junior Developer</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Портфолио Мухаммадсалмона Тухтаева — Junior C++ Developer. Qt, CMake, STL, веб-разработка." />
+  <meta name="author" content="Мухаммадсалмон Тухтаев" />
+  <meta name="theme-color" content="#0d1117" />
+
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Мухаммадсалмон Тухтаев — Junior C++ Developer" />
+  <meta property="og:description" content="Портфолио C++ разработчика: проекты, навыки, опыт." />
+  <meta property="og:image" content="assets/avatar.jpg" />
+
+  <title>Мухаммадсалмон Тухтаев — Junior C++ Developer</title>
+
+  <link rel="icon" href="assets/avatar.jpg" type="image/jpeg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600&family=Sora:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-    <!-- Navigation -->
-    <nav class="navbar">
-        <div class="nav-container">
-            <div class="nav-logo">MS</div>
-            <ul class="nav-menu">
-                <li><a href="#hero" class="nav-link">Главная</a></li>
-                <li><a href="#about" class="nav-link">Обо мне</a></li>
-                <li><a href="#skills" class="nav-link">Навыки</a></li>
-                <li><a href="#projects" class="nav-link">Проекты</a></li>
-                <li><a href="#contact" class="nav-link">Контакты</a></li>
-            </ul>
-            <div class="nav-toggle">
-                <span class="bar"></span>
-                <span class="bar"></span>
-                <span class="bar"></span>
-            </div>
-        </div>
+  <!-- Прогресс-бар прокрутки -->
+  <div class="scroll-progress" id="scrollProgress"></div>
+
+  <!-- Навигация -->
+  <header class="navbar" id="navbar">
+    <nav class="nav container">
+      <a href="#hero" class="nav__logo">
+        <span class="nav__logo-bracket">&lt;</span>МТ<span class="nav__logo-bracket">/&gt;</span>
+      </a>
+
+      <ul class="nav__menu" id="navMenu">
+        <li><a href="#about" class="nav__link">О себе</a></li>
+        <li><a href="#skills" class="nav__link">Навыки</a></li>
+        <li><a href="#experience" class="nav__link">Опыт</a></li>
+        <li><a href="#projects" class="nav__link">Проекты</a></li>
+        <li><a href="#education" class="nav__link">Образование</a></li>
+        <li><a href="#contact" class="nav__link">Контакты</a></li>
+      </ul>
+
+      <div class="nav__actions">
+        <button class="theme-toggle" id="themeToggle" aria-label="Переключить тему" title="Сменить тему">
+          <svg class="icon-sun" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
+          <svg class="icon-moon" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+        </button>
+        <button class="nav__toggle" id="navToggle" aria-label="Открыть меню">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
     </nav>
+  </header>
 
-    <!-- Hero Section -->
-    <section id="hero" class="hero">
-        <div class="hero-background"></div>
-        <div class="hero-content">
-            <div class="hero-text">
-                <h1 class="hero-title">Тухтаев Мухаммадсалмон</h1>
-                <h2 class="hero-subtitle">Junior C++ / Unreal Engine Developer</h2>
-                <p class="hero-description">C++ Developer | Unreal Engine | Desktop Applications</p>
-                <div class="hero-buttons">
-                    <a href="#projects" class="btn btn-primary">Мои проекты</a>
-                    <a href="#contact" class="btn btn-secondary">Связаться</a>
-                </div>
-            </div>
-            <div class="hero-image">
-                <div class="avatar-container">
-                    <img src="assets/avatar.jpg" alt="Тухтаев Мухаммадсалмон" class="avatar" onerror="this.src='https://via.placeholder.com/400x400/0d0d0d/3b82f6?text=Avatar'">
-                </div>
-            </div>
+  <main>
+    <!-- HERO -->
+    <section class="hero" id="hero">
+      <div class="hero__bg" aria-hidden="true"></div>
+      <div class="container hero__inner">
+        <div class="hero__content reveal">
+          <p class="hero__greeting">👋 Привет, меня зовут</p>
+          <h1 class="hero__name">Мухаммадсалмон<br />Тухтаев</h1>
+          <h2 class="hero__role">
+            <span class="typed" id="typed">Junior C++ Developer</span>
+          </h2>
+          <p class="hero__desc">
+            Сертифицированный C++ разработчик с опытом коммерческой разработки и
+            участия в международном хакатоне NASA Space Apps Challenge.
+            Создаю высокопроизводительные десктопные приложения и веб-сайты.
+          </p>
+
+          <div class="hero__badges">
+            <span class="badge">C++ 11/14/17</span>
+            <span class="badge">Qt</span>
+            <span class="badge">CMake</span>
+            <span class="badge">Git</span>
+            <span class="badge">STL · ООП</span>
+          </div>
+
+          <div class="hero__actions">
+            <a href="#projects" class="btn btn--primary">Мои проекты</a>
+            <a href="#contact" class="btn btn--ghost">Связаться</a>
+          </div>
+
+          <div class="hero__socials">
+            <a href="https://github.com/tuhtaevsalmon" target="_blank" rel="noopener" class="social" title="GitHub" aria-label="GitHub">
+              <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor"><path d="M12 .5C5.7.5.5 5.7.5 12c0 5.1 3.3 9.4 7.9 10.9.6.1.8-.2.8-.5v-2c-3.2.7-3.9-1.4-3.9-1.4-.5-1.3-1.3-1.7-1.3-1.7-1.1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1 1.8 2.7 1.3 3.4 1 .1-.8.4-1.3.7-1.6-2.6-.3-5.3-1.3-5.3-5.8 0-1.3.5-2.3 1.2-3.1-.1-.3-.5-1.5.1-3.1 0 0 1-.3 3.3 1.2a11.5 11.5 0 0 1 6 0C17.3 4.7 18.3 5 18.3 5c.6 1.6.2 2.8.1 3.1.8.8 1.2 1.8 1.2 3.1 0 4.5-2.7 5.5-5.3 5.8.4.4.8 1.1.8 2.2v3.3c0 .3.2.6.8.5A11.5 11.5 0 0 0 23.5 12C23.5 5.7 18.3.5 12 .5z"></path></svg>
+            </a>
+            <a href="https://www.linkedin.com/in/salmon-tuhtaev" target="_blank" rel="noopener" class="social" title="LinkedIn" aria-label="LinkedIn">
+              <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor"><path d="M20.5 2h-17A1.5 1.5 0 0 0 2 3.5v17A1.5 1.5 0 0 0 3.5 22h17a1.5 1.5 0 0 0 1.5-1.5v-17A1.5 1.5 0 0 0 20.5 2zM8 19H5V8h3v11zM6.5 6.7a1.8 1.8 0 1 1 0-3.6 1.8 1.8 0 0 1 0 3.6zM19 19h-3v-5.6c0-1.3 0-3-1.9-3-1.8 0-2.1 1.4-2.1 2.9V19H9V8h2.9v1.5h.1c.4-.8 1.4-1.6 2.9-1.6 3.1 0 3.7 2 3.7 4.7V19z"></path></svg>
+            </a>
+            <a href="https://t.me/TMS0308" target="_blank" rel="noopener" class="social" title="Telegram" aria-label="Telegram">
+              <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor"><path d="M21.9 4.3 18.6 19.8c-.2 1.1-.9 1.3-1.8.8l-5-3.7-2.4 2.3c-.3.3-.5.5-1 .5l.4-5 9.2-8.3c.4-.4-.1-.6-.6-.2L6.3 13.2 1.4 11.6c-1-.3-1.1-1 .2-1.5l19-7.3c.9-.3 1.6.2 1.3 1.5z"></path></svg>
+            </a>
+            <a href="mailto:Tuhtaevsalmon@gmail.com" class="social" title="Email" aria-label="Email">
+              <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"></rect><path d="m22 7-10 6L2 7"></path></svg>
+            </a>
+          </div>
         </div>
-        <div class="scroll-indicator">
-            <span></span>
+
+        <div class="hero__photo reveal">
+          <div class="photo-wrap">
+            <img src="assets/avatar.jpg" alt="Фото Мухаммадсалмона Тухтаева" class="photo" />
+            <div class="photo-ring" aria-hidden="true"></div>
+          </div>
         </div>
+      </div>
+
+      <a href="#about" class="scroll-down" aria-label="Прокрутить вниз">
+        <span class="mouse"><span></span></span>
+      </a>
     </section>
 
-    <!-- About Section -->
-    <section id="about" class="section">
-        <div class="container">
-            <h2 class="section-title">Обо мне</h2>
-            <div class="about-content">
-                <div class="about-image">
-                    <div class="about-card">
-                        <img src="assets/avatar.jpg" alt="Фото" class="about-photo" onerror="this.src='https://via.placeholder.com/300x300/0d0d0d/3b82f6?text=Photo'">
-                        <div class="about-info">
-                            <h3>Тухтаев Мухаммадсалмон</h3>
-                            <p class="role">Junior Developer</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="about-text">
-                    <p class="about-description">
-                        Junior C++ Developer с фокусом на разработку desktop приложений и работу с базами данных. 
-                        Увлечен алгоритмами, структурами данных и созданием эффективных решений. 
-                        Ищу возможности для профессионального роста и развития в области системного программирования.
-                    </p>
-                    <div class="technologies">
-                        <h3>Технологии</h3>
-                        <div class="tech-tags">
-                            <span class="tech-tag">C++</span>
-                            <span class="tech-tag">Unreal Engine</span>
-                            <span class="tech-tag">PostgreSQL</span>
-                            <span class="tech-tag">Desktop Apps</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
+    <!-- О СЕБЕ -->
+    <section class="section" id="about">
+      <div class="container">
+        <h2 class="section__title reveal"><span class="section__num">01.</span> О себе</h2>
+        <div class="about">
+          <div class="about__text reveal">
+            <p>
+              Сертифицированный C++ разработчик. Успешно завершил комплексное профессиональное
+              обучение от Skillbox («Разработчик C++ с нуля»). Глубоко освоил принципы
+              объектно-ориентированного программирования (ООП), базовые алгоритмы, структуры
+              данных и возможности стандартной библиотеки (STL).
+            </p>
+            <p>
+              Имею практический опыт коммерческой разработки (выполненный фриланс-заказ), а также
+              опыт командного взаимодействия на международном хакатоне NASA Space Apps Challenge.
+              Активно развиваюсь в сфере создания высокопроизводительных систем, десктопных
+              приложений и бэкенд-логики. Также создаю сайты на WordPress.
+            </p>
+            <p>
+              Нацелен на позицию Junior-разработчика или стажёра в сильной технической команде,
+              где смогу перенимать опыт менторов и писать поддерживаемый, чистый код. Быстро
+              погружаюсь в новые технологии и обладаю высокой инженерной любознательностью.
+            </p>
+          </div>
+          <ul class="about__facts reveal">
+            <li><span class="fact__icon">📍</span><div><strong>Локация</strong><span>г. Исфара, Таджикистан</span></div></li>
+            <li><span class="fact__icon">💼</span><div><strong>Статус</strong><span>Открыт к Junior / стажировке</span></div></li>
+            <li><span class="fact__icon">🎓</span><div><strong>Образование</strong><span>Skillbox — Разработчик C++</span></div></li>
+            <li><span class="fact__icon">🗣️</span><div><strong>Языки</strong><span>Русский (C2), English (A2)</span></div></li>
+          </ul>
         </div>
+      </div>
     </section>
 
-    <!-- Skills Section -->
-    <section id="skills" class="section section-alt">
-        <div class="container">
-            <h2 class="section-title">Навыки</h2>
-            <div class="skills-content">
-                <div class="skill-item">
-                    <h3>Основные технологии</h3>
-                    <div class="tech-tags">
-                        <span class="tech-tag">C++</span>
-                        <span class="tech-tag">Unreal Engine</span>
-                        <span class="tech-tag">PostgreSQL</span>
-                        <span class="tech-tag">Desktop Apps</span>
-                    </div>
-                </div>
-                <div class="skill-item">
-                    <h3>Инструменты</h3>
-                    <div class="tech-tags">
-                        <span class="tech-tag">Git</span>
-                        <span class="tech-tag">Visual Studio</span>
-                        <span class="tech-tag">Qt</span>
-                    </div>
-                </div>
+    <!-- НАВЫКИ -->
+    <section class="section section--alt" id="skills">
+      <div class="container">
+        <h2 class="section__title reveal"><span class="section__num">02.</span> Технические навыки</h2>
+        <div class="skills">
+          <article class="skill-card reveal">
+            <div class="skill-card__icon">💻</div>
+            <h3>Языки программирования</h3>
+            <div class="tags">
+              <span class="tag">C++ (11/14/17)</span>
+              <span class="tag">STL</span>
+              <span class="tag">ООП</span>
+              <span class="tag">Управление памятью</span>
+              <span class="tag">Указатели</span>
             </div>
+          </article>
+
+          <article class="skill-card reveal">
+            <div class="skill-card__icon">🖥️</div>
+            <h3>Фреймворки и GUI</h3>
+            <div class="tags">
+              <span class="tag">Qt Framework</span>
+              <span class="tag">Кроссплатформенные приложения</span>
+              <span class="tag">WPF / .NET</span>
+            </div>
+          </article>
+
+          <article class="skill-card reveal">
+            <div class="skill-card__icon">🛠️</div>
+            <h3>Инструменты и сборка</h3>
+            <div class="tags">
+              <span class="tag">Git</span>
+              <span class="tag">GitHub</span>
+              <span class="tag">CMake</span>
+              <span class="tag">GCC / Clang / MSVC</span>
+            </div>
+          </article>
+
+          <article class="skill-card reveal">
+            <div class="skill-card__icon">🌐</div>
+            <h3>CMS и веб-разработка</h3>
+            <div class="tags">
+              <span class="tag">WordPress</span>
+              <span class="tag">PHP</span>
+              <span class="tag">HTML</span>
+              <span class="tag">CSS</span>
+              <span class="tag">Адаптивный дизайн</span>
+            </div>
+          </article>
+
+          <article class="skill-card reveal">
+            <div class="skill-card__icon">📚</div>
+            <h3>Фундаментальные знания</h3>
+            <div class="tags">
+              <span class="tag">Алгоритмы и структуры данных</span>
+              <span class="tag">Многопоточность</span>
+              <span class="tag">Сетевые концепции</span>
+              <span class="tag">IPC</span>
+              <span class="tag">Работа с файлами</span>
+            </div>
+          </article>
         </div>
+      </div>
     </section>
 
-    <!-- Projects Section -->
-    <section id="projects" class="section section-alt">
-        <div class="container">
-            <h2 class="section-title">Проекты</h2>
-            <div class="projects-grid">
-                <div class="project-card">
-                    <div class="project-image">
-                        <div class="project-placeholder">
-                            <span>💻</span>
-                        </div>
-                    </div>
-                    <div class="project-content">
-                        <h3 class="project-title">C++ Search Engine</h3>
-                        <p class="project-description">
-                            Поисковая система на C++ с индексацией документов и поиском по ключевым словам. 
-                            Реализована эффективная обработка текстовых данных, инвертированный индекс 
-                            и алгоритмы ранжирования результатов.
-                        </p>
-                        <div class="project-tech">
-                            <span class="tech-tag-small">C++</span>
-                            <span class="tech-tag-small">Algorithms</span>
-                            <span class="tech-tag-small">Data Structures</span>
-                            <span class="tech-tag-small">File I/O</span>
-                        </div>
-                        <a href="https://github.com/tuhtaevsalmon/search-engine" target="_blank" class="project-link">
-                            <span>GitHub</span>
-                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
-                        </a>
-                    </div>
-                </div>
-                <div class="project-card">
-                    <div class="project-image">
-                        <div class="project-placeholder">
-                            <span>🌐</span>
-                        </div>
-                    </div>
-                    <div class="project-content">
-                        <h3 class="project-title">Multisession Browser</h3>
-                        <p class="project-description">
-                            WPF приложение для управления несколькими браузерными сессиями на Windows. 
-                            Поддерживает управление учётными записями, конфигурацию прокси, пользовательские 
-                            user-agents и автоматизацию браузера на базе WebView2.
-                        </p>
-                        <div class="project-tech">
-                            <span class="tech-tag-small">C#</span>
-                            <span class="tech-tag-small">WPF</span>
-                            <span class="tech-tag-small">.NET</span>
-                            <span class="tech-tag-small">WebView2</span>
-                        </div>
-                        <a href="https://github.com/tuhtaevsalmon/Multisession-Browser" target="_blank" class="project-link">
-                            <span>GitHub</span>
-                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
-                        </a>
-                    </div>
-                </div>
-                <div class="project-card">
-                    <div class="project-image">
-                        <div class="project-placeholder">
-                            <span>🏠</span>
-                        </div>
-                    </div>
-                    <div class="project-content">
-                        <h3 class="project-title">Dev Mir Недвижимости</h3>
-                        <p class="project-description">
-                            Адаптивный веб-сайт агентства недвижимости для демонстрации объектов, услуг и контактной информации. 
-                            Сайт подчеркивает аккуратный дизайн, понятную структуру и мобильную адаптацию.
-                        </p>
-                        <div class="project-tech">
-                            <span class="tech-tag-small">WordPress</span>
-                            <span class="tech-tag-small">PHP</span>
-                            <span class="tech-tag-small">HTML</span>
-                            <span class="tech-tag-small">CSS</span>
-                        </div>
-                        <a href="https://dev-mir-nedvizhimosti.pantheonsite.io/" target="_blank" class="project-link">
-                            <span>Сайт</span>
-                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13l2 2 4-4m-5-7a9 9 0 1 0 9 9 9 9 0 0 0-9-9z"></path></svg>
-                        </a>
-                    </div>
-                </div>
+    <!-- ОПЫТ -->
+    <section class="section" id="experience">
+      <div class="container">
+        <h2 class="section__title reveal"><span class="section__num">03.</span> Опыт и деятельность</h2>
+        <div class="timeline">
+          <div class="timeline__item reveal">
+            <div class="timeline__dot"></div>
+            <div class="timeline__content">
+              <span class="timeline__period">Периодически</span>
+              <h3>C++ Разработчик</h3>
+              <span class="timeline__org">Freelance · Внештатная разработка</span>
+              <ul>
+                <li>Успешно выполнил коммерческий заказ по разработке ПО на языке C++.</li>
+                <li>Проектировал внутреннюю логику приложения, проводил отладку и оптимизацию кода под требования заказчика.</li>
+              </ul>
             </div>
+          </div>
+
+          <div class="timeline__item reveal">
+            <div class="timeline__dot"></div>
+            <div class="timeline__content">
+              <span class="timeline__period">Командное участие</span>
+              <h3>Участник хакатона / Разработчик</h3>
+              <span class="timeline__org">NASA Space Apps Challenge</span>
+              <ul>
+                <li>Участвовал в престижном международном хакатоне в кросс-функциональной команде.</li>
+                <li>Применил навыки оперативного прототипирования в условиях жёстких дедлайнов.</li>
+                <li>Освоил командное взаимодействие, код-ревью, распределение задач по Git и презентацию MVP.</li>
+              </ul>
+            </div>
+          </div>
         </div>
+      </div>
     </section>
 
-    <!-- Contact Section -->
-    <section id="contact" class="section">
-        <div class="container">
-            <h2 class="section-title">Контакты</h2>
-            <div class="contact-content">
-                <div class="contact-info">
-                    <h3>Свяжитесь со мной</h3>
-                    <p class="contact-description">
-                        Открыт для предложений по работе и сотрудничеству. 
-                        Не стесняйтесь писать!
-                    </p>
-                    <div class="contact-links">
-                        <a href="mailto:tuhtaevsalmon@gmail.com" class="contact-link">
-                            <div class="contact-icon">📧</div>
-                            <div class="contact-text">
-                                <span class="contact-label">Email</span>
-                                <span class="contact-value">tuhtaevsalmon@gmail.com</span>
-                            </div>
-                        </a>
-                        <a href="https://t.me/TMS0308" target="_blank" class="contact-link">
-                            <div class="contact-icon">✈️</div>
-                            <div class="contact-text">
-                                <span class="contact-label">Telegram</span>
-                                <span class="contact-value">@TMS0308</span>
-                            </div>
-                        </a>
-                        <a href="https://github.com/tuhtaevsalmon" target="_blank" class="contact-link">
-                            <div class="contact-icon">🐙</div>
-                            <div class="contact-text">
-                                <span class="contact-label">GitHub</span>
-                                <span class="contact-value">tuhtaevsalmon</span>
-                            </div>
-                        </a>
-                        <a href="https://dev-mir-nedvizhimosti.pantheonsite.io/" target="_blank" class="contact-link">
-                            <div class="contact-icon">🌐</div>
-                            <div class="contact-text">
-                                <span class="contact-label">Проект</span>
-                                <span class="contact-value">Dev Mir</span>
-                            </div>
-                        </a>
-                        <a href="https://www.linkedin.com/in/salmon-tuhtaev" target="_blank" class="contact-link">
-                            <div class="contact-icon">💼</div>
-                            <div class="contact-text">
-                                <span class="contact-label">LinkedIn</span>
-                                <span class="contact-value">salmon-tuhtaev</span>
-                            </div>
-                        </a>
-                    </div>
-                </div>
+    <!-- ПРОЕКТЫ -->
+    <section class="section section--alt" id="projects">
+      <div class="container">
+        <h2 class="section__title reveal"><span class="section__num">04.</span> Ключевые проекты</h2>
+        <div class="projects">
+          <article class="project reveal">
+            <div class="project__top">
+              <span class="project__folder">📁</span>
+              <div class="project__links">
+                <a href="https://github.com/tuhtaevsalmon/Multisession-Browser" target="_blank" rel="noopener" aria-label="GitHub проекта" title="GitHub">
+                  <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M12 .5C5.7.5.5 5.7.5 12c0 5.1 3.3 9.4 7.9 10.9.6.1.8-.2.8-.5v-2c-3.2.7-3.9-1.4-3.9-1.4-.5-1.3-1.3-1.7-1.3-1.7-1.1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1 1.8 2.7 1.3 3.4 1 .1-.8.4-1.3.7-1.6-2.6-.3-5.3-1.3-5.3-5.8 0-1.3.5-2.3 1.2-3.1-.1-.3-.5-1.5.1-3.1 0 0 1-.3 3.3 1.2a11.5 11.5 0 0 1 6 0C17.3 4.7 18.3 5 18.3 5c.6 1.6.2 2.8.1 3.1.8.8 1.2 1.8 1.2 3.1 0 4.5-2.7 5.5-5.3 5.8.4.4.8 1.1.8 2.2v3.3c0 .3.2.6.8.5A11.5 11.5 0 0 0 23.5 12C23.5 5.7 18.3.5 12 .5z"></path></svg>
+                </a>
+              </div>
             </div>
+            <h3 class="project__title">Multisession Browser</h3>
+            <p class="project__desc">
+              Многосессионный браузер — приложение для управления несколькими независимыми
+              пользовательскими сессиями параллельно в рамках одной программной среды.
+            </p>
+            <div class="tags tags--mono">
+              <span class="tag">C#</span><span class="tag">WPF</span><span class="tag">.NET 8.0</span><span class="tag">WebView2</span><span class="tag">MVVM</span><span class="tag">JSON</span>
+            </div>
+          </article>
+
+          <article class="project reveal">
+            <div class="project__top">
+              <span class="project__folder">📁</span>
+              <div class="project__links">
+                <a href="https://github.com/tuhtaevsalmon/search-engine" target="_blank" rel="noopener" aria-label="GitHub проекта" title="GitHub">
+                  <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M12 .5C5.7.5.5 5.7.5 12c0 5.1 3.3 9.4 7.9 10.9.6.1.8-.2.8-.5v-2c-3.2.7-3.9-1.4-3.9-1.4-.5-1.3-1.3-1.7-1.3-1.7-1.1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1 1.8 2.7 1.3 3.4 1 .1-.8.4-1.3.7-1.6-2.6-.3-5.3-1.3-5.3-5.8 0-1.3.5-2.3 1.2-3.1-.1-.3-.5-1.5.1-3.1 0 0 1-.3 3.3 1.2a11.5 11.5 0 0 1 6 0C17.3 4.7 18.3 5 18.3 5c.6 1.6.2 2.8.1 3.1.8.8 1.2 1.8 1.2 3.1 0 4.5-2.7 5.5-5.3 5.8.4.4.8 1.1.8 2.2v3.3c0 .3.2.6.8.5A11.5 11.5 0 0 0 23.5 12C23.5 5.7 18.3.5 12 .5z"></path></svg>
+                </a>
+              </div>
+            </div>
+            <h3 class="project__title">Search Engine</h3>
+            <p class="project__desc">
+              Полнофункциональный локальный поисковый движок для индексации и быстрого поиска
+              по большим массивам текстовых документов с ранжированием по релевантности.
+            </p>
+            <div class="tags tags--mono">
+              <span class="tag">C++</span><span class="tag">STL</span><span class="tag">Инвертированный индекс</span><span class="tag">Токенизация</span><span class="tag">Оптимизация</span>
+            </div>
+          </article>
+
+          <article class="project reveal">
+            <div class="project__top">
+              <span class="project__folder">📁</span>
+              <div class="project__links">
+                <a href="https://github.com/tuhtaevsalmon/Portfolio" target="_blank" rel="noopener" aria-label="GitHub проекта" title="GitHub">
+                  <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M12 .5C5.7.5.5 5.7.5 12c0 5.1 3.3 9.4 7.9 10.9.6.1.8-.2.8-.5v-2c-3.2.7-3.9-1.4-3.9-1.4-.5-1.3-1.3-1.7-1.3-1.7-1.1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1 1.8 2.7 1.3 3.4 1 .1-.8.4-1.3.7-1.6-2.6-.3-5.3-1.3-5.3-5.8 0-1.3.5-2.3 1.2-3.1-.1-.3-.5-1.5.1-3.1 0 0 1-.3 3.3 1.2a11.5 11.5 0 0 1 6 0C17.3 4.7 18.3 5 18.3 5c.6 1.6.2 2.8.1 3.1.8.8 1.2 1.8 1.2 3.1 0 4.5-2.7 5.5-5.3 5.8.4.4.8 1.1.8 2.2v3.3c0 .3.2.6.8.5A11.5 11.5 0 0 0 23.5 12C23.5 5.7 18.3.5 12 .5z"></path></svg>
+                </a>
+              </div>
+            </div>
+            <h3 class="project__title">Portfolio Website</h3>
+            <p class="project__desc">
+              Современный минималистичный веб-сайт-портфолио с адаптивным дизайном
+              и SEO-оптимизацией.
+            </p>
+            <div class="tags tags--mono">
+              <span class="tag">HTML5</span><span class="tag">CSS3</span><span class="tag">JavaScript</span><span class="tag">Figma</span><span class="tag">SEO</span>
+            </div>
+          </article>
+
+          <article class="project reveal">
+            <div class="project__top">
+              <span class="project__folder">📁</span>
+              <div class="project__links">
+                <a href="https://dev-mir-nedvizhimosti.pantheonsite.io/" target="_blank" rel="noopener" aria-label="Открыть сайт" title="Открыть сайт">
+                  <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><path d="M15 3h6v6"></path><path d="M10 14 21 3"></path></svg>
+                </a>
+              </div>
+            </div>
+            <h3 class="project__title">Dev Mir Недвижимости</h3>
+            <p class="project__desc">
+              Адаптивный веб-сайт агентства недвижимости на WordPress для демонстрации объектов,
+              услуг и контактов. Настройка темы и поддержка адаптивности.
+            </p>
+            <div class="tags tags--mono">
+              <span class="tag">WordPress</span><span class="tag">PHP</span><span class="tag">HTML</span><span class="tag">CSS</span><span class="tag">JS</span><span class="tag">SEO</span>
+            </div>
+          </article>
         </div>
+      </div>
     </section>
 
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="container">
-            <p>&copy; 2026 Тухтаев Мухаммадсалмон. Все права защищены.</p>
-        </div>
-    </footer>
+    <!-- ОБРАЗОВАНИЕ -->
+    <section class="section" id="education">
+      <div class="container">
+        <h2 class="section__title reveal"><span class="section__num">05.</span> Образование и сертификаты</h2>
+        <div class="education">
+          <div class="edu-card reveal">
+            <div class="edu-card__head">
+              <span class="edu-card__icon">🎓</span>
+              <div>
+                <h3>Разработчик C++ с нуля</h3>
+                <span class="edu-card__org">Образовательная платформа Skillbox · Успешно окончен</span>
+              </div>
+            </div>
+            <ul>
+              <li>Основы синтаксиса, продвинутый C++, ООП, STL, основы работы с сетью.</li>
+              <li>Управление памятью, многопоточность и CMake.</li>
+              <li>Успешно защитил выпускной проект и выполнил десятки практических заданий.</li>
+            </ul>
+            <p class="edu-card__doc">📄 Официальный именной сертификат, подтверждающий квалификацию.</p>
+          </div>
 
-    <script src="script.js"></script>
+          <figure class="certificate reveal">
+            <img src="assets/certificate1.png" alt="Сертификат Skillbox — Разработчик C++" id="certImg" loading="lazy" />
+            <figcaption>Нажмите, чтобы увеличить сертификат</figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <!-- КОНТАКТЫ -->
+    <section class="section section--alt" id="contact">
+      <div class="container contact">
+        <p class="contact__pre reveal">06. Что дальше?</p>
+        <h2 class="contact__title reveal">Давайте работать вместе</h2>
+        <p class="contact__text reveal">
+          Я открыт к предложениям о работе на позиции Junior-разработчика или стажёра.
+          Свяжитесь со мной любым удобным способом — отвечу как можно скорее.
+        </p>
+        <a href="mailto:Tuhtaevsalmon@gmail.com" class="btn btn--primary btn--lg reveal">Написать на почту</a>
+
+        <div class="contact__grid reveal">
+          <a href="tel:+992987139956" class="contact__item">
+            <span>📞 Телефон</span><strong>+992 98 713 9956</strong>
+          </a>
+          <a href="mailto:Tuhtaevsalmon@gmail.com" class="contact__item">
+            <span>📧 Email</span><strong>Tuhtaevsalmon@gmail.com</strong>
+          </a>
+          <a href="https://t.me/TMS0308" target="_blank" rel="noopener" class="contact__item">
+            <span>✈️ Telegram</span><strong>@TMS0308</strong>
+          </a>
+          <a href="https://github.com/tuhtaevsalmon" target="_blank" rel="noopener" class="contact__item">
+            <span>🐙 GitHub</span><strong>tuhtaevsalmon</strong>
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer__inner">
+      <span>© <span id="year"></span> Мухаммадсалмон Тухтаев</span>
+      <span class="footer__made">Сделано на HTML · CSS · JavaScript</span>
+    </div>
+  </footer>
+
+  <!-- Лайтбокс сертификата -->
+  <div class="lightbox" id="lightbox" aria-hidden="true">
+    <button class="lightbox__close" id="lightboxClose" aria-label="Закрыть">&times;</button>
+    <img src="assets/certificate1.png" alt="Сертификат Skillbox (увеличенный)" id="lightboxImg" />
+  </div>
+
+  <!-- Кнопка наверх -->
+  <button class="to-top" id="toTop" aria-label="Наверх" title="Наверх">↑</button>
+
+  <script src="script.js"></script>
 </body>
 </html>
