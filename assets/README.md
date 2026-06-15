@@ -5,8 +5,7 @@ This folder contains images for your portfolio website.
 ## Required Images:
 
 1. **avatar.jpg** — Your profile photo (recommended size: 400×400px)
-   - Place your photo here and name it `avatar.jpg`
-   - The site will automatically use this image
+2. **favicon.svg** — векторная иконка сайта (`&lt;MT/&gt;`)
 
 ## Tips:
 - Use high-quality images
