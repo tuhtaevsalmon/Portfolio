@@ -462,12 +462,19 @@ html[data-theme="light"] .icon-moon { display: block; }
 /* ---------- Проекты ---------- */
 .projects {
   display: grid;
+  gap: 36px;
+}
+.projects__group {
+  display: grid;
+  gap: 18px;
+}
+.projects__grid {
+  display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   gap: 24px;
 }
 .projects__break {
-  grid-column: 1 / -1;
-  margin-top: 10px;
+  width: 100%;
 }
 .projects__subtitle {
   font-size: 1.15rem;
