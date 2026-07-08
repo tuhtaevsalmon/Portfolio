@@ -465,6 +465,17 @@ html[data-theme="light"] .icon-moon { display: block; }
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   gap: 24px;
 }
+.projects__break {
+  grid-column: 1 / -1;
+  margin-top: 10px;
+}
+.projects__subtitle {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--text);
+  padding-bottom: 10px;
+  border-bottom: 1px solid var(--border);
+}
 .project {
   background: var(--surface);
   border: 1px solid var(--border);

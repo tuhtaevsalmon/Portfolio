@@ -112,7 +112,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const typedEl = document.getElementById("typed");
   if (typedEl) {
     const roles = [
-      "Junior C++ Developer",
+      "C++ / Web Developer",
       "Web Developer",
       "Qt Desktop Developer",
       "WordPress Developer",

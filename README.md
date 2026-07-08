@@ -1,11 +1,12 @@
 # Мухаммадсалмон Тухтаев
-### Junior C++ Developer (Младший C++ разработчик)
+### Junior C++ / Web Developer
 
 <p align="left">
   <img src="https://img.shields.io/badge/C%2B%2B-11%2F14%2F17-blue?style=flat-square&logo=c%2B%2B" alt="C++">
   <img src="https://img.shields.io/badge/Framework-Qt-41CD52?style=flat-square&logo=qt" alt="Qt">
   <img src="https://img.shields.io/badge/Build-CMake-064F8C?style=flat-square&logo=cmake" alt="CMake">
   <img src="https://img.shields.io/badge/VCS-Git-F05032?style=flat-square&logo=git" alt="Git">
+  <img src="https://img.shields.io/badge/Web-HTML%20%2F%20CSS%20%2F%20JS-0ea5a4?style=flat-square" alt="Web">
 </p>
 
 ---
@@ -60,7 +61,9 @@ C++ разработчик с сильной базой в объектно-ор
 
 ---
 
-## 🚀 Ключевые проекты (GitHub)
+## 🚀 Ключевые проекты
+
+### C++ / C# Проекты
 
 ### 1. [Multisession Browser (Многосессионный браузер)](https://github.com/tuhtaevsalmon/Multisession-Browser)
 * **Описание:** Специализированное приложение для управления несколькими независимыми пользовательскими сессиями параллельно в рамках одной программной среды.
@@ -69,6 +72,8 @@ C++ разработчик с сильной базой в объектно-ор
 ### 2. [Search Engine (Поисковый движок)](https://github.com/tuhtaevsalmon/search-engine)
 * **Описание:** Полнофункциональный локальный поисковый движок, предназначенный для индексации и быстрого поиска по большим массивам текстовых документов.
 * **Реализация & Технологии:** C++, STL, эффективные алгоритмы токенизации текста, построение инвертированного индекса, ранжирование результатов по релевантности, использование оптимальных контейнеров и оптимизация скорости работы с диском.
+
+### Веб-проекты
 
 ### 3. [Portfolio Website](https://github.com/tuhtaevsalmon/Portfolio)
 * **Описание:** Современный минималистичный веб-сайт-портфолио с адаптивным дизайном.
