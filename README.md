@@ -15,6 +15,7 @@
 
 * **📍 Локация:** г. Исфара, Таджикистан
 * **📞 Телефон:** +992 98 713 9956
+* **💬 WhatsApp:** [+992 98 713 9956](https://wa.me/992987139956)
 * **📧 Email:** [Tuhtaevsalmon@gmail.com](mailto:Tuhtaevsalmon@gmail.com)
 * **✈️ Telegram:** [@TMS0308](https://t.me/TMS0308)
 * **💼 LinkedIn:** [linkedin.com/in/salmon-tuhtaev](https://www.linkedin.com/in/salmon-tuhtaev)
