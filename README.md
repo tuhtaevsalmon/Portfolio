@@ -3,6 +3,7 @@
 
 <p align="left">
   <img src="https://img.shields.io/badge/C%2B%2B-11%2F14%2F17-blue?style=flat-square&logo=c%2B%2B" alt="C++">
+  <img src="https://img.shields.io/badge/Python-3776AB?style=flat-square&logo=python&logoColor=white" alt="Python">
   <img src="https://img.shields.io/badge/Framework-Qt-41CD52?style=flat-square&logo=qt" alt="Qt">
   <img src="https://img.shields.io/badge/Build-CMake-064F8C?style=flat-square&logo=cmake" alt="CMake">
   <img src="https://img.shields.io/badge/VCS-Git-F05032?style=flat-square&logo=git" alt="Git">
@@ -34,7 +35,7 @@ C++ разработчик с сильной базой в объектно-ор
 
 ## 🛠 Технические навыки
 
-* **Языки программирования:** C++ (Стандарты C++11 / 14 / 17, STL, ООП, управление памятью, работа с указателями)
+* **Языки программирования:** C++ (Стандарты C++11 / 14 / 17, STL, ООП, управление памятью, работа с указателями), Python
 * **Фреймворки и GUI:** Qt Framework (разработка кроссплатформенных десктопных приложений)
 * **Инструменты и системы сборки:** Git, GitHub, CMake, компиляторы (GCC / Clang / MSVC)
 * **Веб-разработка:** вёрстка лендингов и сайтов на HTML, CSS, JavaScript, Next.js 14, TypeScript, Tailwind CSS, Alpine.js; backend на PHP, SQLite, Node.js и Express; Prisma, PostgreSQL; адаптивный дизайн; базовая SEO-оптимизация
