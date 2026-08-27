@@ -115,7 +115,7 @@ document.addEventListener("DOMContentLoaded", () => {
       "C++ / Web Developer",
       "Web Developer",
       "Qt Desktop Developer",
-      "WordPress Developer",
+      "Next.js Developer",
       "Algorithm Enthusiast",
     ];
     let roleIndex = 0;
