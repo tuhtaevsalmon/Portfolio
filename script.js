@@ -12,8 +12,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const themeToggle = document.getElementById("themeToggle");
   const root = document.documentElement;
   const savedTheme = localStorage.getItem("theme");
-  const prefersLight = window.matchMedia("(prefers-color-scheme: light)").matches;
-  const initialTheme = savedTheme || (prefersLight ? "light" : "dark");
+  const initialTheme = savedTheme || "light";
   root.setAttribute("data-theme", initialTheme);
 
   themeToggle?.addEventListener("click", () => {
