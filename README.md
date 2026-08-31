@@ -24,7 +24,7 @@
 * **📞 Телефон:** +992 98 713 9956
 * **💬 WhatsApp:** [+992 98 713 9956](https://wa.me/992987139956)
 * **📧 Email:** [Tuhtaevsalmon@gmail.com](mailto:Tuhtaevsalmon@gmail.com)
-* **✈️ Telegram:** [@TMS0308](https://t.me/Tukhtaev7)
+* **✈️ Telegram:** [@Tukhtaev7](https://t.me/Tukhtaev7)
 * **💼 LinkedIn:** [linkedin.com/in/salmon-tuhtaev](https://www.linkedin.com/in/salmon-tuhtaev)
 * **🌐 Портфолио:** [tuhtaevsalmon.github.io/Portfolio/](https://tuhtaevsalmon.github.io/Portfolio/)
 * **🐙 GitHub:** [github.com/tuhtaevsalmon](https://github.com/tuhtaevsalmon)
